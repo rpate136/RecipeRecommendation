@@ -1,0 +1,19 @@
+# Backend dockerfile
+
+FROM python:3.11-slim
+
+WORKDIR /app/backend
+
+COPY main.py /app/backend/
+
+COPY requirements.txt /app/backend/requirements.txt
+
+RUN pip install -r requirements.txt
+
+ENV PORT=5001
+
+EXPOSE 80
+
+# CMD python3 ./app.py uwsgi --socket 0.0.0.0:5001 --protocol=http -w wsgi:app  
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
