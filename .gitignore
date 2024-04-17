@@ -1,0 +1,20 @@
+# Next.js
+/.next/
+
+# Node modules
+frontend/food-recommendation/node_modules/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# virtual env
+backend/.venv
