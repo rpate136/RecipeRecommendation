@@ -5,6 +5,7 @@ import Navbar from '../../components/navbar'
 import "./globals.css";
 import { ThemeProvider } from "../../context/ThemeContext";
 import ClientThemeWrapper from "../../context/ClientThemeWrapper";
+import Footer from "../../components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +20,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" data-theme='cupcake' className="h-screen">
       <ThemeProvider>
         <ClientThemeWrapper>
-          <Navbar />
-          <div>
-          {children}
-          </div>
+          <body className={`${inter.className} flex flex-col h-full`}>
+            <Navbar />
+            <div className="mx-auto max-w-5xl text-2xl flex-grow mb-auto overflow-auto">
+              {children}
+            </div>
+            <Footer />
+          </body>
         </ClientThemeWrapper>
       </ThemeProvider>
-      </body>
     </html>
   );
 }

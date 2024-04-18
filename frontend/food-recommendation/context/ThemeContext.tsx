@@ -4,7 +4,7 @@ import {createContext, useState, useEffect} from "react";
 // type ThemeContextValue = { theme: string; changeTheme: (theme: string) => void }
 // const ThemeContext = createContext<ThemeContextValue>("", (theme: string) => void)
 
-export const ThemeContext = createContext("");
+export const ThemeContext = createContext("cupcake");
 
 export const ThemeProvider = ({children}: any) => {
     const [theme, setTheme] = useState("light");
