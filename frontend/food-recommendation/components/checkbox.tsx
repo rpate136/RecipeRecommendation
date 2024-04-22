@@ -27,10 +27,10 @@ interface CheckboxProps {
 
   return (
     <div className="flex flex-row">
-      <div className="form-control flex-wrap flex-row">
+      <div className="form-control flex-wrap flex-row justify-center">
         {list.map((item) => (
           <label key={item.id} className="label cursor-pointer">
-            <span className="label-text">{item.label}</span>
+            <span className="label-text text-center font-light px-1">{item.label}</span>
             <input
               type="checkbox"
               checked={item.checked}

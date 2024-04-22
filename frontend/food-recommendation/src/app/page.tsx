@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Checkbox from "../../components/checkbox";
 import cuisines from "../../cuisines.json"
-
+import TextInput from '../../components/textInput';
 
 export default function Home() {
   
@@ -20,8 +20,12 @@ export default function Home() {
         <h1 className='font-bold'> What allergies do you have?</h1>
         <div className="grid h-auto card bg-base-300 rounded-box place-items-center">
         content
+        </div> 
+        <div className="divider divider-accent"></div>
+        <h1 className='font-bold'> What ingredients are you strongly craving?</h1>
+        <div className="grid h-auto card bg-base-300 rounded-box place-items-center">
+          <TextInput />
         </div>
-
       </div>
     </div>
 
