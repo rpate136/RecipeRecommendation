@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { XMarkIcon } from '@heroicons/react/16/solid';
 
-export default function TextInput() {
+interface TextInputProps {
+    ingredientList: string[];
+    setIngredientList: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+    const TextInput: React.FC<TextInputProps> = ({ ingredientList, setIngredientList }) => {
+
     const [ingredient, setIngredient] = useState<string>('');
-    const [ingredientList, setIngredientList] = useState<string[]>([]);
+    // const [ingredientList, setIngredientList] = useState<string[]>([]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIngredient(event.target.value);
@@ -49,3 +55,5 @@ export default function TextInput() {
         </div>
     );
 }
+
+export default TextInput;

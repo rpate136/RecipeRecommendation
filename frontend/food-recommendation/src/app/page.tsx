@@ -6,7 +6,8 @@ import TextInput from '../../components/textInput';
 
 export default function Home() {
   
-    const [list, setList] = useState(cuisines);
+  const [list, setList] = useState(cuisines);
+  const [ingredientList, setIngredientList] = useState<string[]>([]);
   
   return (
   
@@ -24,7 +25,7 @@ export default function Home() {
         <div className="divider divider-accent"></div>
         <h1 className='font-bold'> What ingredients are you strongly craving?</h1>
         <div className="grid h-auto card bg-base-300 rounded-box place-items-center">
-          <TextInput />
+          <TextInput ingredientList={ingredientList} setIngredientList={setIngredientList}/>
         </div>
       </div>
     </div>
