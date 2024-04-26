@@ -12,9 +12,8 @@ services:
   frontend:
     build: 
       context: ./frontend/food-recommendation
-
     volumes:
-      - ./frontend/food-recommendation:/app
+      - ./frontend/food-recommendation:/app/frontend/food-recommendation
     ports:
       - ${FRONTEND_PORT}:${FRONTEND_PORT}
     
