@@ -1,37 +1,20 @@
 [
     {
       "idDrink": "11007",
-      "strDrink": "Margarita",
-      "strDrinkAlternate": null,
-      "strTags": "IBA,ContemporaryClassic",
-      "strVideo": null,
-      "strCategory": "Ordinary Drink",
-      "strIBA": "Contemporary Classics",
-      "strAlcoholic": "Alcoholic",
-      "strGlass": "Cocktail glass",
+      "strDrink": "Margarita",      
       "strInstructions": "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.",
       "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
-      "ingredients": [
-        {
-          "strIngredient1": "Tequila",
-          "strMeasure1": "1 1/2 oz "
-        },
-        {
-          "strIngredient2": "Triple sec",
-          "strMeasure2": "1/2 oz "
-        },
-        {
-          "strIngredient3": "Lime juice",
-          "strMeasure3": "1 oz "
-        },
-        {
-          "strIngredient4": "Salt",
-          "strMeasure4": null
-        }
-      ],
-      "strImageSource": "https://commons.wikimedia.org/wiki/File:Klassiche_Margarita.jpg",
-      "strImageAttribution": "Cocktailmarler"
+      "ingredients": "Tequila (1 1/2 oz), Triple sec (1/2 oz), Line juice (1 oz), Salt",
+      "strImageSource": "https://commons.wikimedia.org/wiki/File:Klassiche_Margarita.jpg"
+    },
+
+    {
+        "idDrink": "11118",
+        "strDrink": "Blue Margarita",
+        "strInstructions": "Rub rim of cocktail glass with lime juice. Dip rim in coarse salt. Shake tequila, blue curacao, and lime juice with ice, strain into the salt-rimmed glass, and serve.",
+        "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/bry4qh1582751040.jpg",
+        "ingredients": "Tequila (1 1/2 oz), Blue Curacao (1 oz), Lime juice (1 oz), Salt",         
+        "strImageSource": ""
     }
   ]
 
-  

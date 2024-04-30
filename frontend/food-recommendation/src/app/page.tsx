@@ -1,21 +1,24 @@
 'use client'
 import React, { useState,useEffect } from 'react';
+
 import Checkbox from "../../components/checkbox";
 import TextInput from '../../components/textInput';
 import SearchField from '../../components/searchList';
-import liquore from "../../json/liquore.json"
 import Carousel from '../../components/recipieDisplay';
+
+import liquore from "../../json/liquore.json"
 import ingredients from "../../json/ingredients.json"
+import recipie from "../../json/recipe.json"
 
 export default function Home() {
   
-  const liquore_var = liquore;
   const [liquoreSelected, setLiquoreSelected] = useState<{ id: number; label: string; checked: boolean}[]>(liquore);
   const [liquoreFinalList, setLiquoreFinalList] = useState<string[]>([]);
   
   const ingredients_var = ingredients;
   const [ingredientSelected, setIngredientSelected] = useState([]);
-  // const [ingredientList, setIngredientList] = useState<string[]>([]);
+
+  const [recipes,setRecipies] = useState<{idDrink:string,strDrink:string,strInstructions:string,strDrinkThumb:string,ingredients:string,strImageSource:string}[]>(recipie);
 
   const handleCheckbox = (data: any) => {
     setLiquoreSelected(data);
@@ -34,6 +37,10 @@ export default function Home() {
       console.log("Make the API call")
     }
   }
+
+  useEffect(() => {
+    console.log(recipes)
+  }, [recipes]);
   
   return (
   
@@ -55,7 +62,7 @@ export default function Home() {
           </form>
         </div>
         <div className='m-5'>
-        <Carousel></Carousel>
+        {recipes && <Carousel recipes={recipes}></Carousel>}
         </div>
       </div>
     </div>

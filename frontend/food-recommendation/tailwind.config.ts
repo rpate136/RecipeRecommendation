@@ -9,7 +9,7 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   daisyui: {
-    themes: ["light", "dark", "cupcake","luxury"],
+    themes: ["light", "dark", "cupcake","luxury","sunset"],
   },
   theme: {
     extend: {},
