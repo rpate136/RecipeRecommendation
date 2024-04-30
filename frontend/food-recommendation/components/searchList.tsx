@@ -3,17 +3,15 @@ import { XMarkIcon } from "@heroicons/react/16/solid";
 
 interface TextInputProps {
  ingredientList: { id: number; label: string; checked: boolean }[];
+ setIngredientList: React.Dispatch<React.SetStateAction<{ id: number; label: string; checked: boolean }[]>>;
 }
 
-const SearchField: React.FC<TextInputProps> = ({ ingredientList }) => {
- const [inputValue, setInputValue] = useState("");
- const [isDropdownOpen, setIsDropdownOpen] = useState(false);
- const [filteredOptions, setFilteredOptions] = useState<
-   { value: string; label: string }[]
- >([]);
- const [selectedItems, setSelectedItems] = useState<
-   { id: number; label: string; checked: boolean }[]
- >([]);
+const SearchField: React.FC<TextInputProps> = ({ ingredientList , setIngredientList}) => {
+
+  const [inputValue, setInputValue] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [filteredOptions, setFilteredOptions] = useState<{ value: string; label: string }[]>([]);
+  const [selectedItems, setSelectedItems] = useState<{ id: number; label: string; checked: boolean }[]>([]);
 
  useEffect(() => {
    const options = ingredientList.map((item) => ({
@@ -39,6 +37,7 @@ const SearchField: React.FC<TextInputProps> = ({ ingredientList }) => {
    );
    if (selectedItem) {
      setSelectedItems([...selectedItems, selectedItem]);
+     setIngredientList([...selectedItems, selectedItem]);
      setInputValue("");
      setIsDropdownOpen(false);
    }
@@ -48,21 +47,26 @@ const SearchField: React.FC<TextInputProps> = ({ ingredientList }) => {
    const updatedList = [...selectedItems];
    updatedList.splice(index, 1);
    setSelectedItems(updatedList);
+   setIngredientList(updatedList);
  };
 
  const handleClickOutside = (event: MouseEvent) => {
-   const dropdownElement = event.target as Node;
-   if (!dropdownElement.closest(".dropdown")) {
-     setIsDropdownOpen(false);
-   }
- };
+  if (event.target instanceof Element) {
+    const dropdownElement = event.target;
 
- useEffect(() => {
-   document.addEventListener("mousedown", handleClickOutside);
-   return () => {
-     document.removeEventListener("mousedown", handleClickOutside);
-   };
- }, []);
+    if (!dropdownElement.closest(".dropdown")) {
+      setIsDropdownOpen(false);
+    }
+  }
+};
+
+useEffect(() => {
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
 
  return (
     <div className="flex flex-row">

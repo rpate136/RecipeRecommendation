@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 interface CheckboxProps {
     list: { id: number; label: string; checked: boolean; }[];
     setList: React.Dispatch<React.SetStateAction<{ id: number; label: string; checked: boolean; }[]>>;
+    // onCheckedItemsChange: (checkedItems: number[]) => void;
+
   }
 
   const Checkbox: React.FC<CheckboxProps> = ({ list, setList }) => {
@@ -17,6 +19,7 @@ interface CheckboxProps {
     setList(updatedList);
     const checkedItemsIds = updatedList.filter((item) => item.checked).map((item) => item.id);
     setCheckedItems(checkedItemsIds);
+    // onCheckedItemsChange(checkedItemsIds);
   };
 
   return (
