@@ -20,7 +20,7 @@ export default function Navbar() {
         </div>
     </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-4xl font-serif font-extrabold">What you finna cook tn?</a>
+        <a className="btn btn-ghost sm:text-xl lg:text-4xl font-serif font-extrabold">What you finna drink tn?</a>
       </div>
       <div className="navbar-end">
         <label className="swap swap-rotate">  {/*onClick={() => changeTheme("light")}*/}

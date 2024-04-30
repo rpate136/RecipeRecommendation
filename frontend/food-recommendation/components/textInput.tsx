@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { XMarkIcon } from '@heroicons/react/16/solid';
 
 interface TextInputProps {
-    ingredientList: string[];
-    setIngredientList: React.Dispatch<React.SetStateAction<string[]>>;
+    list: string[];
+    setList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-    const TextInput: React.FC<TextInputProps> = ({ ingredientList, setIngredientList }) => {
+    const TextInput: React.FC<TextInputProps> = ({ list, setList }) => {
 
     const [ingredient, setIngredient] = useState<string>('');
-    // const [ingredientList, setIngredientList] = useState<string[]>([]);
+    // const [list, setList] = useState<string[]>([]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIngredient(event.target.value);
@@ -17,15 +17,15 @@ interface TextInputProps {
 
     const handleAddIngredient = () => {
         if (ingredient.trim() !== '') {
-            setIngredientList([...ingredientList, ingredient]);
+            setList([...list, ingredient]);
             setIngredient('');
         }
     };
 
     const handleRemoveIngredient = (index: number) => {
-        const updatedIngredients = [...ingredientList];
+        const updatedIngredients = [...list];
         updatedIngredients.splice(index, 1);
-        setIngredientList(updatedIngredients);
+        setList(updatedIngredients);
     };
 
     return (
@@ -42,7 +42,7 @@ interface TextInputProps {
             </div>
         
             <ul className="flex flex-row form-control flex-wrap space-x-4 justify-center">
-                {ingredientList.map((ingredient, index) => (
+                {list.map((ingredient, index) => (
                     <li key={index} className="flex flex-row items-center text-lg">
                         <span>{ingredient}</span>
                         <button onClick={() => handleRemoveIngredient(index)} className="ml-1 text-red-500 hover:text-red-700">

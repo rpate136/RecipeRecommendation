@@ -8,12 +8,6 @@ interface CheckboxProps {
 
   const Checkbox: React.FC<CheckboxProps> = ({ list, setList }) => {
     
-    // const [list, setList] = useState([
-    // { id: 1, label: 'Remember me 1', checked: false },
-    // { id: 2, label: 'Remember me 2', checked: false },
-    // { id: 3, label: 'Remember me 3', checked: false },
-    // ]);
-
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
 
   const handleCheckboxChange = (id:any) => {
