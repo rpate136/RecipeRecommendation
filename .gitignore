@@ -19,3 +19,5 @@ Thumbs.db
 
 # virtual env
 backend/.venv
+.DS_Store
+.DS_Store
