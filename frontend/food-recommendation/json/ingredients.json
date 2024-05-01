@@ -1,6 +1,6 @@
 [
     { "id": 1, "label": "Lemon", "checked": false },
-    { "id": 2, "label": "Lime", "checked": false },
+    { "id": 2, "label": "Lime juice", "checked": false },
     { "id": 3, "label": "Orange", "checked": false },
     { "id": 4, "label": "Grenadine", "checked": false },
     { "id": 5, "label": "Simple syrup", "checked": false },
@@ -48,7 +48,8 @@
     { "id": 47, "label": "Raspberry", "checked": false },
     { "id": 48, "label": "Blueberry", "checked": false },
     { "id": 49, "label": "Strawberry", "checked": false },
-    { "id": 50, "label": "Blackberry", "checked": false}
+    { "id": 50, "label": "Blackberry", "checked": false},
+    { "id": 51, "label": "Salt", "checked": false}
 
 ]
   

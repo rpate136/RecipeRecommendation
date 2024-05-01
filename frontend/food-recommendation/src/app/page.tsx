@@ -1,5 +1,6 @@
 'use client'
 import React, { useState,useEffect } from 'react';
+import axios from 'axios';
 
 import Checkbox from "../../components/checkbox";
 import TextInput from '../../components/textInput';
@@ -16,9 +17,9 @@ export default function Home() {
   const [liquoreFinalList, setLiquoreFinalList] = useState<string[]>([]);
   
   const ingredients_var = ingredients;
-  const [ingredientSelected, setIngredientSelected] = useState([]);
+  const [ingredientSelected, setIngredientSelected] = useState<string[]>([]);
 
-  const [recipes,setRecipies] = useState<{idDrink:string,strDrink:string,strInstructions:string,strDrinkThumb:string,ingredients:string,strImageSource:string}[]>(recipie);
+  const [recipes,setRecipies] = useState<{name:string,instructions:string,ingredients:string,thumbnail:string}[]>();
 
   const handleCheckbox = (data: any) => {
     setLiquoreSelected(data);
@@ -26,16 +27,42 @@ export default function Home() {
     setLiquoreFinalList(checkedItemsLabels)
   }
   const handleIngredients = (data:any) => {
-    setIngredientSelected(data)
+    const checkedItemsLabels = data.map((item:any) => item.label);
+    setIngredientSelected(checkedItemsLabels)
   }
+
   const handleSubmit = (event:any) => {
     event.preventDefault();
-    if (liquoreSelected.length === 0 || ingredientSelected.length == 0){
+    if (liquoreFinalList.length === 0 || ingredientSelected.length == 0){
       console.log("Input is zero");
     }
     else {
       console.log("Make the API call")
+      
+      const combined = new Set([...liquoreFinalList, ...ingredientSelected]);
+      // Create a URLSearchParams object
+      const params = new URLSearchParams();
+      // Append each item in the list as a parameter
+      combined.forEach(item => {
+      params.append('ingredients', item);
+    });
+    // Get the string representation of the parameters
+    const paramString = params.toString();
+ 
+    const base_uri = process.env.BACKEND_URI || "http://127.0.0.1:8000"
+    const full_uri = base_uri+'/cocktails';
+    const requestURL = `${full_uri}?${paramString}`;
+    axios.get(requestURL)
+    .then(response => {
+      console.log(response.data);
+      setRecipies(response.data.cocktails);
+    })
+    .catch(error =>{
+      console.log(error);
+    })
+    
     }
+  
   }
 
   useEffect(() => {

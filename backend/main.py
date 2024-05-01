@@ -1,16 +1,36 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
+from fastapi.middleware.cors import CORSMiddleware
 import requests
+from typing import List
+
 
 app = FastAPI()
 
-@app.post("/cocktails")
-async def get_cocktails(input: dict):
-    liquors = input['liquors']
-    ingredients = input['ingredients']
+origins = [
+    "http://127.0.0.1",
+    "http://localhost:3000",
+    "https://example.com",
+    "https://subdomain.example.com",
+]
 
+# Add CORS middleware with appropriate configurations
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
+)
+
+@app.get("/cocktails")
+async def get_cocktails(
+    # liquors: List[str] = Query(..., title="Liquors"),
+    ingredients: List[str] = Query(..., title="Ingredients")
+):
     # Combine liquors and ingredients into a single list
-    search_terms = liquors + ingredients
-
+    # search_terms = liquors + ingredients
+    search_terms = ingredients
+    print(search_terms)
     # Initialize an empty list to store the cocktails
     cocktails = []
 
@@ -71,5 +91,6 @@ async def get_cocktails(input: dict):
             "ingredients": ingredients_with_measurements,
             "thumbnail": thumbnail
         })
+        print(cocktail_details)
     
     return {"cocktails": cocktail_details}

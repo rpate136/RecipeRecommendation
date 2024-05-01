@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
 
-interface Recipe {
-  idDrink: string;
-  strDrink: string;
-  strDrinkThumb: string;
-  ingredients: string;
-  strInstructions: string;
-  strImageSource: string;
-}
+interface Recipe {name:string,instructions:string,ingredients:string,thumbnail:string}
 
 interface CarouselProps {
   recipes: Recipe[];
@@ -35,14 +28,14 @@ export default function Carousel({ recipes }: CarouselProps) {
       <div className="carousel w-full border border-primary rounded-lg bg-base-200">
         <div className="carousel-item w-full">
           <img
-            src={currentRecipe.strDrinkThumb}
-            alt={currentRecipe.strDrink}
+            src={currentRecipe.thumbnail}
+            alt={currentRecipe.ingredients}
             className="w-1/4 p-2"
           />
           <div className="m-5 flex flex-col space-y-3">
-            <h1>{currentRecipe.strDrink}</h1>
+            <h1>{currentRecipe.name}</h1>
             <p className="text-sm">{currentRecipe.ingredients}</p>
-            <p className="text-sm">{currentRecipe.strInstructions}</p>
+            <p className="text-sm">{currentRecipe.instructions}</p>
           </div>
         </div>
       </div>
