@@ -60,10 +60,12 @@ def get_cocktails():
                 else:
                     ingredients_with_measurements.append(ingredient)
 
+        formatted_ingredients = ', '.join(ingredients_with_measurements)
+
         cocktail_details.append({
             "name": cocktail_name,
             "instructions": instructions,
-            "ingredients": ingredients_with_measurements,
+            "ingredients": formatted_ingredients,
             "thumbnail": thumbnail
         })
 
