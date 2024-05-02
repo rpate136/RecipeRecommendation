@@ -12,6 +12,8 @@ RUN npm install next
 
 COPY . .
 
+ENV BACKEND_FULL_URI=${Vercel_ENV_VAR_1}
+
 EXPOSE 3000
 
 CMD ["npm","run","dev"]
