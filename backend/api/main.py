@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 import requests
+import uvicorn
 from typing import List
 
 
@@ -21,6 +22,10 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
 
 @app.get("/cocktails")
 async def get_cocktails(
@@ -96,6 +101,6 @@ async def get_cocktails(
     
     return {"cocktails": cocktail_details}
 
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app)
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=80, reload=True)
+
