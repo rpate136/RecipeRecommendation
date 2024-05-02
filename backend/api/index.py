@@ -56,6 +56,7 @@ async def get_cocktails(
         else:
             cocktail_counts[cocktail_id] = 1
 
+
     # Sort the cocktails based on the count of matching ingredients/liquors
     sorted_cocktails = sorted(cocktail_counts.items(), key=lambda x: x[1], reverse=True)
 
@@ -94,3 +95,7 @@ async def get_cocktails(
         print(cocktail_details)
     
     return {"cocktails": cocktail_details}
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app)
