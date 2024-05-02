@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 import requests
-import uvicorn
+
 from typing import List
 
 
@@ -102,5 +102,6 @@ async def get_cocktails(
     return {"cocktails": cocktail_details}
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=80, reload=True)
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
