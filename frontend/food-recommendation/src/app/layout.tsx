@@ -22,8 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme='cupcake' className="h-screen">
-      <ThemeProvider>
-        <ClientThemeWrapper>
+      {/* <ThemeProvider> */}
+        {/* <ClientThemeWrapper> */}
           <body className={`${inter.className} flex flex-col h-full`}>
             <Navbar />
             <div className="mx-auto max-w-5xl text-2xl flex-grow mb-auto overflow-auto">
@@ -31,8 +31,8 @@ export default function RootLayout({
             </div>
             <Footer />
           </body>
-        </ClientThemeWrapper>
-      </ThemeProvider>
+        {/* </ClientThemeWrapper> */}
+      {/* </ThemeProvider> */}
     </html>
   );
 }

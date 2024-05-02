@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   backend:
     build: ./backend
     volumes:
@@ -14,6 +15,9 @@ services:
       context: ./frontend/food-recommendation
     volumes:
       - ./frontend/food-recommendation:/app/frontend/food-recommendation
+    environment:
+      - BACKEND_PORT=${BACKEND_PORT}
+      - BACKEND_SERCIVE_NAME=http://backend
     ports:
       - ${FRONTEND_PORT}:${FRONTEND_PORT}
     

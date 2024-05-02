@@ -6,17 +6,17 @@ from typing import List
 
 app = FastAPI()
 
-origins = [
-    "http://127.0.0.1",
-    "http://localhost:3000",
-    "https://example.com",
-    "https://subdomain.example.com",
-]
-
+# origins = [
+#     "http://127.0.0.1",
+#     "http://127.0.0.1:3000",
+#     "http://localhost:3000",
+#     "http://frontend:3000",
+#     # "http://127.0.0.1:55950",
+# ]
 # Add CORS middleware with appropriate configurations
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],

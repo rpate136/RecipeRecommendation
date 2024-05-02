@@ -38,29 +38,25 @@ export default function Home() {
     }
     else {
       console.log("Make the API call")
-      
-      const combined = new Set([...liquoreFinalList, ...ingredientSelected]);
-      // Create a URLSearchParams object
-      const params = new URLSearchParams();
-      // Append each item in the list as a parameter
-      combined.forEach(item => {
-      params.append('ingredients', item);
+
+    const combined = new Set([...liquoreFinalList, ...ingredientSelected]);
+    const params = new URLSearchParams();
+    // Append each item in the list as a parameter
+    combined.forEach(item => {
+    params.append('ingredients', item);
     });
     // Get the string representation of the parameters
     const paramString = params.toString();
- 
-    const base_uri = process.env.BACKEND_URI || "http://127.0.0.1:8000"
-    const full_uri = base_uri+'/cocktails';
+
+    const full_uri = '/api/getData';
     const requestURL = `${full_uri}?${paramString}`;
-    axios.get(requestURL)
-    .then(response => {
-      console.log(response.data);
-      setRecipies(response.data.cocktails);
-    })
-    .catch(error =>{
-      console.log(error);
-    })
-    
+      axios.get(requestURL)
+      .then(response => {
+        setRecipies(response.data.cocktails)
+      })
+      .catch(error => {
+        console.log(error)
+      })
     }
   
   }
@@ -73,7 +69,7 @@ export default function Home() {
   
     <div className="m-20"> 
       <div className="flex flex-col w-full">
-        <h1 className='font-bold font-serif'> What type of liquore do you want to use?</h1>
+        <h1 className='font-bold font-serif'> What type of liquore do you have to use?</h1>
         <div className="grid h-auto py-6 px-6 card bg-base-300 rounded-box place-items-center">
         <Checkbox list={liquoreSelected} setList={handleCheckbox} />
         </div> 
