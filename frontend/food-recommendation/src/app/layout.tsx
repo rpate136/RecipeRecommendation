@@ -22,9 +22,9 @@ export default function RootLayout({
     <html lang="en" data-theme='cupcake' className="h-screen">
       {/* <ThemeProvider> */}
         {/* <ClientThemeWrapper> */}
-          <body className={`${inter.className} flex flex-col h-full`}>
+          <body className={`${inter.className} flex flex-col h-full w-full`}>
             <Navbar />
-            <div className="mx-auto max-w-5xl text-2xl flex-grow mb-auto overflow-auto">
+            <div className="mx-auto max-w-8xl m-10 md:m-10 text-2xl flex-grow mb-auto flex flex-col">
               {children}
             </div>
             <Footer />

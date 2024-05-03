@@ -67,14 +67,14 @@ export default function Home() {
   
   return (
   
-    <div className="m-20"> 
+    <div className="m-4"> 
       <div className="flex flex-col w-full">
         <h1 className='font-bold font-serif'> What type of liquore do you have to use?</h1>
         <div className="grid h-auto py-6 px-6 card bg-base-300 rounded-box place-items-center">
         <Checkbox list={liquoreSelected} setList={handleCheckbox} />
         </div> 
         <div className="divider divider-accent"></div>
-        <h1 className='font-bold'> What ingredients do you have?</h1>
+        <h1 className='font-bold font-serif'> What ingredients do you have?</h1>
         <div className="grid h-auto card bg-base-300 rounded-box">
           <SearchField ingredientList={ingredients_var} setIngredientList={handleIngredients}/>
         </div> 
@@ -84,7 +84,7 @@ export default function Home() {
             <button className="btn btn-primary">Get Recommendations</button>
           </form>
         </div>
-        <div className='m-5'>
+        <div className='m-4'>
         {recipes && <Carousel recipes={recipes}></Carousel>}
         </div>
       </div>

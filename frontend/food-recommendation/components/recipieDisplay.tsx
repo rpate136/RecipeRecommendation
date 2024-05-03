@@ -30,7 +30,7 @@ export default function Carousel({ recipes }: CarouselProps) {
           <img
             src={currentRecipe.thumbnail}
             alt={currentRecipe.ingredients}
-            className="w-1/4 p-2"
+            className="size-32 md:size-60 w-1/4 p-2"
           />
           <div className="m-5 flex flex-col space-y-3">
             <h1>{currentRecipe.name}</h1>

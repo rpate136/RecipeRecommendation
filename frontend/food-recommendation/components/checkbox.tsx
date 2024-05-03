@@ -32,7 +32,7 @@ interface CheckboxProps {
               type="checkbox"
               checked={item.checked}
               onChange={() => handleCheckboxChange(item.id)}
-              className="checkbox"
+              className="checkbox size-3 md:size-5"
             />
           </label>
         ))}
