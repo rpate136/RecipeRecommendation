@@ -1,9 +1,12 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
 
 app = Flask(__name__)
-CORS(app)
+
+allowed_origin = os.getenv('FRONTEND_FULL_URL')
+CORS(app, resources={r"/*": {"origins": [allowed_origin]}})
 
 @app.route("/", methods=["GET"])
 def root():
