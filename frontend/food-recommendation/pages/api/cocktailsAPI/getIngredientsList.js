@@ -21,6 +21,9 @@ export default async function handler(req, res) {
             }
         });
 
+        otherIngredients.push("Salt","Soda","Coke","Ginger Beer","Sprite","Rose Syrup")
+
+
         // Function to determine if an ingredient is alcohol
         function isAlcohol(ingredient) {
             // Define a list of common alcohol types
@@ -29,12 +32,13 @@ export default async function handler(req, res) {
             // Check if the ingredient contains any of the alcohol types
             return alcoholTypes.some(type => ingredient.toLowerCase().includes(type));
         }
-
+        
         // Prepare the cleaned data
         const cleanedData = {
             alcoholIngredients: alcoholIngredients,
             otherIngredients: otherIngredients
         };
+        
         alcoholIngredients.sort()
         otherIngredients.sort()
         // Send the cleaned data in the response
