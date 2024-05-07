@@ -1,115 +1,60 @@
-'use client'
-import React, { useState,useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Image from 'next/image'
+import cocktailPic from "../../public/main_cocktail_pic.jpg"
+import foodPic from "../../public/main_food_pic.jpg"
 
-import Checkbox from "../../components/checkbox";
-import TextInput from '../../components/textInput';
-import SearchField from '../../components/searchList';
-import Carousel from '../../components/recipieDisplay';
-
-import liquore from "../../json/liquore.json"
-import ingredients from "../../json/ingredients.json"
-import recipie from "../../json/recipe.json"
-
-
-export default function Home() {
-  
-  const [liquoreSelected, setLiquoreSelected] = useState<{ id: number; label: string; checked: boolean}[]>(liquore);
-  const [liquoreFinalList, setLiquoreFinalList] = useState<string[]>([]);
-  
-  const [ingredientsList, setIngredientsList] = useState<{ id: number; label: string; checked: boolean}[]>(ingredients);
-  const [ingredientSelected, setIngredientSelected] = useState<string[]>([]);
-
-  const [recipes,setRecipies] = useState<{name:string,instructions:string,ingredients:string,thumbnail:string}[]>();
-
-  const handleCheckbox = (data: any) => {
-    setLiquoreSelected(data);
-    const checkedItemsLabels = data.filter((item:any) => item.checked).map((item:any) => item.label);
-    setLiquoreFinalList(checkedItemsLabels)
-  }
-  
-  const handleIngredients = (data:any) => {
-    const checkedItemsLabels = data.map((item:any) => item.label);
-    setIngredientSelected(checkedItemsLabels)
-  }
-
-  const handleSubmit = (event:any) => {
-    event.preventDefault();
-    if (liquoreFinalList.length === 0 || ingredientSelected.length == 0){
-      console.log("Input is zero");
-    }
-    else {
-      console.log("Make the API call")
-
-    const combined = new Set([...liquoreFinalList, ...ingredientSelected]);
-    const params = new URLSearchParams();
-    // Append each item in the list as a parameter
-    combined.forEach(item => {
-    params.append('ingredients', item);
-    });
-    // Get the string representation of the parameters
-    const paramString = params.toString();
-
-    const full_uri = '/api/getData';
-    const requestURL = `${full_uri}?${paramString}`;
-      axios.get(requestURL)
-      .then(response => {
-        setRecipies(response.data.cocktails)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    }
-  
-  }
-
-// for getting lists of alcholol and other ingredients from coctailDB and setting the options for users
-  useEffect(() => {
-  axios.get("/api/cocktailsAPI/getIngredientsList")
-  .then(response =>{
-    console.log(response.data)
-    const transformedArrayAlc = response.data.alcoholIngredients.map((item:any, index:any) => ({
-      id: index + 1,
-      label: item.charAt(0).toUpperCase() + item.slice(1), // Capitalize the first letter
-      checked: false
-    }));
-    setLiquoreSelected(transformedArrayAlc)
-
-    const transformedArrayOther = response.data.otherIngredients.map((item:any, index:any) => ({
-      id: index + 1,
-      label: item.charAt(0).toUpperCase() + item.slice(1), // Capitalize the first letter
-      checked: false
-    }));
-    setIngredientsList(transformedArrayOther)
-
-    });  
-  }, []);
-
+function Home() {
 
   return (
-  
-    <div className="m-4"> 
-      <div className="flex flex-col w-full">
-        <h1 className='font-bold font-serif'> What type of liquore do you have to use?</h1>
-        <div className="grid h-auto py-6 px-6 card bg-base-300 rounded-box place-items-center">
-        <Checkbox list={liquoreSelected} setList={handleCheckbox} />
-        </div> 
-        <div className="divider divider-accent"></div>
-        <h1 className='font-bold font-serif'> What ingredients do you have?</h1>
-        <div className="grid h-auto card bg-base-300 rounded-box">
-          <SearchField ingredientList={ingredientsList} setIngredientList={handleIngredients}/>
-        </div> 
-        <div className="divider divider-accent"></div>
-        <div className='flex justify-center'>
-          <form onSubmit={handleSubmit}>
-            <button className="btn btn-primary">Get Recommendations</button>
-          </form>
-        </div>
-        <div className='m-4'>
-        {recipes && <Carousel recipes={recipes}></Carousel>}
-        </div>
+    <div className='h-fit mt-5'>
+
+    <div className="hero bg-base-200">
+    <div className="hero-content w-fit ml-auto mr-auto text-center flex">
+      <div className="max-w-md">
+        <h1 className="text-5xl font-bold">Hello there</h1>
+        <p className="py-4">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        <button className="btn btn-primary">Get Started</button>
       </div>
     </div>
+    </div>
 
-  );
+
+    <div id='pictures' className='w-fit ml-auto mr-auto mt-0 md:flex md:flex-row'>
+
+        <div className="card w-60 bg-base-100 shadow-xl m-4">
+          <figure> <Image src={cocktailPic} height={400} width={700} alt="Picture of Cocktail"/> </figure>
+          <div className="card-body">
+            <h2 className="card-title">
+              Cocktails!
+              <div className="badge badge-secondary">NEW</div>
+            </h2>
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div className="card-actions justify-end">
+              <div className="badge badge-outline">Fashion</div> 
+              <div className="badge badge-outline">Products</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="card w-60 bg-base-100 shadow-xl m-4">
+          <figure> <Image src={foodPic} height={400} width={700} alt="Picture of Cocktail"/> </figure>
+          <div className="card-body">
+            <h2 className="card-title">
+              Food!
+              <div className="badge badge-secondary">NEW</div>
+            </h2>
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div className="card-actions justify-end">
+              <div className="badge badge-outline">Fashion</div> 
+              <div className="badge badge-outline">Products</div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+    </div>
+  )
 }
+
+export default Home;

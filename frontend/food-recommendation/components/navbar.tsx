@@ -1,10 +1,18 @@
 "use client"
 import React,{ useContext } from "react";
+import { useRouter } from 'next/router';
+
+import CocktailSVG from '../public/svg/cocktail.svg';
+import Cutlery from '../public/svg/cutlery.svg';
+import AddBtn from '../public/svg/add.svg';
+
+
 
 export default function Navbar() {
-  // const {changeTheme} = useContext(ThemeContext);
-
+  
+  
   return (
+    <div className="">
     <div className="navbar bg-base-300 w-full" >
       <div className="navbar-start">
         <div className="dropdown">
@@ -12,14 +20,14 @@ export default function Navbar() {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li><a>Homepage</a></li>
-            <li><a>Portfolio</a></li>
-            <li><a>About</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/cocktails/recommendation">Cocktails</a></li>
+            <li><a href="/food/recipie">Food</a></li>
           </ul>
         </div>
     </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-2xl lg:text-4xl font-serif font-extrabold">What you finna drink tn?</a>
+        <a href='/' className="btn btn-ghost text-lg lg:text-4xl font-serif font-extrabold">What should I make?</a>
       </div>
       <div className="navbar-end">
         <label className="swap swap-rotate">  {/*onClick={() => changeTheme("light")}*/}
@@ -31,6 +39,16 @@ export default function Navbar() {
           <svg className="swap-on fill-current w-7 h-7 md:w-10 md:h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>  
         </label>
       </div>
+    </div>
+
+    <div className="w-fit ml-auto mr-auto mt-0">
+      <ul className="menu menu-horizontal bg-base-200 rounded-box mt-0">
+        <li><a className="tooltip" data-tip="Home" href="/cocktails/recommendation"> <CocktailSVG height='25' width='25'></CocktailSVG></a></li>
+        <li><a className="tooltip" data-tip="Details" href="/food/recipie"><Cutlery height='25' width='25'></Cutlery></a></li>
+        <li><a className="tooltip" data-tip="Stats"><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg></a></li>
+      </ul>
+    </div>    
+    
     </div>
 
   );

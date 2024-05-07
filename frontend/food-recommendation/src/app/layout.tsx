@@ -5,6 +5,7 @@ import React, { useState,useEffect } from 'react';
 import "./globals.css";
 import Footer from "../../components/footer";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,12 +23,12 @@ export default function RootLayout({
     <html lang="en" data-theme='cupcake' className="h-screen">
       {/* <ThemeProvider> */}
         {/* <ClientThemeWrapper> */}
-          <body className={`${inter.className} flex flex-col h-full w-full`}>
+          <body className={`${inter.className} flex flex-col justify-between min-h-screen`}>
             <Navbar />
-            <div className="mx-auto max-w-8xl m-10 md:m-10 text-2xl flex-grow mb-auto flex flex-col">
+            <div className="flex-1 ml-auto mr-auto mt-0">
               {children}
             </div>
-            <Footer />
+          <Footer/>
           </body>
         {/* </ClientThemeWrapper> */}
       {/* </ThemeProvider> */}
