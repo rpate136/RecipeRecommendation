@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/cocktailsAPI/getIngredientsList.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/cocktailsAPI/getIngredientsList.js", "context/ThemeContext.js"],
   "exclude": ["node_modules"]
 }

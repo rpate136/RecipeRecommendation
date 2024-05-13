@@ -1,17 +1,18 @@
 // pages/_app.js
 
 import "/src/app/globals.css";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer"
-import { useRouter } from 'next/router';
+import Navbar from "../components/navigation/navbar";
+import Footer from "../components/navigation/footer"
+
 
 
 function MyApp({ Component, pageProps }) {
+
   return (
-    <div data-theme='cupcake'>
-    <div className="flex flex-col h-full md:h-screen w-full">
+    <div >
+    <div className="flex flex-col justify-between min-h-screen">
       <Navbar />
-      <div className="mx-auto max-w-8xl md:m-2 text-2xl flex-grow mb-auto flex flex-col justify-between min-h-screen">
+      <div className="flex-1 ml-auto mr-auto mt-0 justify-between min-h-screen">
       <Component {...pageProps} />
       </div>
     </div>

@@ -2,10 +2,10 @@
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 
-import Checkbox from "../../components/checkbox";
-import TextInput from '../../components/textInput';
-import SearchField from '../../components/searchList';
-import Carousel from '../../components/recipieDisplay';
+import Checkbox from "../../components/input/checkbox";
+import TextInput from '../../components/input/textInput';
+import SearchField from '../../components/input/searchList';
+import Carousel from '../../components/display/recipieDisplay';
 
 import CocktailNavBar from '../../components/navigation/cocktailBar';
 
