@@ -1,0 +1,75 @@
+{
+    "Spices/Oil": [
+      "Salt",
+      "Pepper",
+      "Olive Oil",
+      "Garlic Powder",
+      "Onion Powder",
+      "Paprika",
+      "Cumin",
+      "Turmeric",
+      "Chili Powder",
+      "Cinnamon"
+    ],
+    "Fruits/Veg": [
+      "Apples",
+      "Bananas",
+      "Oranges",
+      "Tomatoes",
+      "Lettuce",
+      "Broccoli",
+      "Carrots",
+      "Spinach",
+      "Potatoes",
+      "Onions"
+    ],
+    "Meats/Poultry": [
+      "Chicken Breast",
+      "Ground Beef",
+      "Salmon Fillet",
+      "Pork Chops",
+      "Turkey Breast",
+      "Bacon",
+      "Lamb Chops",
+      "Steak",
+      "Shrimp",
+      "Sausages"
+    ],
+    "Dairy": [
+      "Milk",
+      "Eggs",
+      "Butter",
+      "Cheddar Cheese",
+      "Yogurt",
+      "Cream Cheese",
+      "Sour Cream",
+      "Mozzarella Cheese",
+      "Cottage Cheese",
+      "Whipped Cream"
+    ],
+    "Bread": [
+      "White Bread",
+      "Whole Wheat Bread",
+      "Bagels",
+      "Tortillas",
+      "English Muffins",
+      "Croissants",
+      "Sourdough Bread",
+      "Pita Bread",
+      "Brioche",
+      "Rye Bread"
+    ],
+    "Others": [
+      "Pasta",
+      "Rice",
+      "Canned Beans",
+      "Cereal",
+      "Quinoa",
+      "Peanut Butter",
+      "Jam",
+      "Honey",
+      "Maple Syrup",
+      "Granola Bars"
+    ]
+  }
+  
